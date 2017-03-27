@@ -65,7 +65,7 @@ public class MessageReaderWriterTest {
                      .binary(path2)
                      .testBlockSize()
                      .build()) {
-            MethodReader reader2 = queue1.createTailer().methodReader(ObjectUtils.printAll(MessageListener.class));
+            MethodReader reader2 = queue2.createTailer().methodReader(ObjectUtils.printAll(MessageListener.class));
             MessageListener writer2 = queue2.acquireAppender().methodWriter(MessageListener.class);
             MessageListener processor = new MessageProcessor(writer2);
             MethodReader reader1 = queue1.createTailer().methodReader(processor);
